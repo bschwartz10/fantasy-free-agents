@@ -5,16 +5,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import PlayerRow from '../PlayerRow';
 
-const PlayerTable = ({ players }) => {
+const PlayerTable = ({ players, handleClick }) => {
   return (
     <Table responsive>
       <thead>
         <tr>
-          <th>Name <FontAwesomeIcon icon="sort" /></th>
+          <th>Name</th>
           <th>Position</th>
           <th>Team</th>
-          <th>Height <FontAwesomeIcon icon="sort" /></th>
-          <th>Weight <FontAwesomeIcon icon="sort" /></th>
+          <th>Height</th>
+          <th>Weight</th>
+          <th>Adp <FontAwesomeIcon onClick={(e) => handleClick(e)} icon="sort" /></th>
         </tr>
       </thead>
       <tbody>
