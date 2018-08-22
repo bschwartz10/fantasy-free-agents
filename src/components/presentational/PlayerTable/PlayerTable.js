@@ -10,12 +10,12 @@ const PlayerTable = ({ players, handleClick }) => {
     <Table responsive>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Position</th>
-          <th>Team</th>
-          <th>Height</th>
-          <th>Weight</th>
-          <th>Adp <FontAwesomeIcon onClick={(e) => handleClick(e)} icon="sort" /></th>
+          <th>Name <FontAwesomeIcon onClick={(e) => handleClick(e, 'nameSorted', 'name')} icon="sort" /></th>
+          <th>Position <FontAwesomeIcon onClick={(e) => handleClick(e, 'positionSorted', 'position')} icon="sort" /></th>
+          <th>Team <FontAwesomeIcon onClick={(e) => handleClick(e, 'teamSorted', 'team')} icon="sort" /></th>
+          <th>Height <FontAwesomeIcon onClick={(e) => handleClick(e, 'heightSorted', 'height')} icon="sort" /></th>
+          <th>Weight <FontAwesomeIcon onClick={(e) => handleClick(e, 'weightSorted', 'weight')} icon="sort" /></th>
+          <th>Adp <FontAwesomeIcon onClick={(e) => handleClick(e, 'adpSorted', 'adp')} icon="sort" /></th>
         </tr>
       </thead>
       <tbody>
