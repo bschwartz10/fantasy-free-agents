@@ -11,10 +11,16 @@ import Loading from '../../presentational/Loading'
 class PlayerTableContainer extends Component {
   state = {
     players: [],
+    allPlayers: [],
+    positions: [],
     loading: true,
     adpSorted: true,
   }
-  componentDidMount = async () => {
+  componentDidMount = () => {
+    this.fetch()
+  }
+
+  fetch = async () => {
     const rawPlayers = await fetchPlayers()
     const rawAdp = await fetchADP()
 
@@ -33,7 +39,7 @@ class PlayerTableContainer extends Component {
                         return firstPlayer.adp - secondPlayer.adp
                       })
 
-    this.setState({ players: players, loading: false });
+    this.setState({ players: players, allPlayers: players, loading: false });
   }
 
   handleClick = (e, type, attribute) => {
@@ -82,12 +88,37 @@ class PlayerTableContainer extends Component {
     return sortedCollection
   }
 
+  toggleChange = (e, position) => {
+    let { positions } = this.state
+    const index = positions.indexOf(position)
+    if (index > -1) {
+      positions.splice(index, 1)
+    } else {
+        positions = [...this.state.positions, position]
+    }
+      this.setState({ positions }, () => {
+        this.filterPlayersByPosition()
+      },
+    )
+  }
+
+  filterPlayersByPosition = () => {
+    let players = this.state.allPlayers
+    let { positions } = this.state
+    if (positions.length >= 1) {
+      players = players.filter((player) => positions.includes(player.position))
+      this.setState({ players })
+    } else {
+        this.setState({ players: this.state.allPlayers })
+    }
+  }
+
   render() {
     const { players, loading } = this.state;
     if (loading) return <Loading />
     return (
       <div>
-        <PlayerTableFilters />
+        <PlayerTableFilters toggleChange={this.toggleChange} />
         <PlayerTable players={players} handleClick={this.handleClick} />
       </div>
     );
