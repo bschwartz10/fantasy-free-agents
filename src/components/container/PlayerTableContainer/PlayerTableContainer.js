@@ -40,7 +40,6 @@ class PlayerTableContainer extends Component {
                       })
 
     this.setState({ players: players, allPlayers: players, loading: false });
-    console.log(this.state.players);
   }
 
   handleClick = (e, type, attribute) => {
