@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component should match snapshot with all data passed in correctly 1`] = `
+<div
+  className="header"
+>
+  NFL Player List
+  <img
+    alt="Logo"
+    className="header-logo"
+    src="logo.png"
+  />
+</div>
+`;

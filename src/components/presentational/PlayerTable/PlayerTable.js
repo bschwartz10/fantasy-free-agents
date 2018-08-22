@@ -10,12 +10,12 @@ const PlayerTable = ({ players, handleClick }) => {
     <Table responsive>
       <thead>
         <tr>
-          <th>Name <FontAwesomeIcon onClick={(e) => handleClick(e, 'nameSorted', 'name')} icon="sort" /></th>
-          <th>Position <FontAwesomeIcon onClick={(e) => handleClick(e, 'positionSorted', 'position')} icon="sort" /></th>
-          <th>Team <FontAwesomeIcon onClick={(e) => handleClick(e, 'teamSorted', 'team')} icon="sort" /></th>
-          <th>Height <FontAwesomeIcon onClick={(e) => handleClick(e, 'heightSorted', 'height')} icon="sort" /></th>
-          <th>Weight <FontAwesomeIcon onClick={(e) => handleClick(e, 'weightSorted', 'weight')} icon="sort" /></th>
-          <th>Adp <FontAwesomeIcon onClick={(e) => handleClick(e, 'adpSorted', 'adp')} icon="sort" /></th>
+          <th className="name">Name <FontAwesomeIcon onClick={(e) => handleClick(e, 'nameSorted', 'name')} icon="sort" /></th>
+          <th className="position">Position <FontAwesomeIcon onClick={(e) => handleClick(e, 'positionSorted', 'position')} icon="sort" /></th>
+          <th className="team">Team <FontAwesomeIcon onClick={(e) => handleClick(e, 'teamSorted', 'team')} icon="sort" /></th>
+          <th className="height">Height <FontAwesomeIcon onClick={(e) => handleClick(e, 'heightSorted', 'height')} icon="sort" /></th>
+          <th className="weight">Weight <FontAwesomeIcon onClick={(e) => handleClick(e, 'weightSorted', 'weight')} icon="sort" /></th>
+          <th className="adp">Adp <FontAwesomeIcon onClick={(e) => handleClick(e, 'adpSorted', 'adp')} icon="sort" /></th>
         </tr>
       </thead>
       <tbody>

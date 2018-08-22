@@ -8,10 +8,10 @@ const PlayerTableFilters = ({toggleChange, handleChange}) => {
   return (
     <div className="PlayerTableFilters">
       <FormGroup>
-        <Checkbox inline onChange={(e) => toggleChange(e, 'QB')}>QB</Checkbox>
-        <Checkbox inline onChange={(e) => toggleChange(e, 'RB')}>RB</Checkbox>
-        <Checkbox inline onChange={(e) => toggleChange(e, 'WR')}>WR</Checkbox>
-        <Checkbox inline onChange={(e) => toggleChange(e, 'TE')}>TE</Checkbox>
+        <Checkbox className="qb" inline onChange={(e) => toggleChange(e, 'QB')}>QB</Checkbox>
+        <Checkbox className="rb" inline onChange={(e) => toggleChange(e, 'RB')}>RB</Checkbox>
+        <Checkbox className="wr" inline onChange={(e) => toggleChange(e, 'WR')}>WR</Checkbox>
+        <Checkbox className="te" inline onChange={(e) => toggleChange(e, 'TE')}>TE</Checkbox>
       </FormGroup>
       <FormControl type="text" placeholder="Search by Name" onChange={(e) => handleChange(e)} />
     </div>

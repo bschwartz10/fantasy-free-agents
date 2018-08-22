@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlayerTableContainer component should match snapshot with all data passed in correctly 1`] = `
+<div>
+  <PlayerTableFilters
+    handleChange={[Function]}
+    toggleChange={[Function]}
+  />
+  <PlayerTable
+    handleClick={[Function]}
+    players={
+      Array [
+        Object {
+          "adp": "400",
+          "birthdate": "656226000",
+          "cbs_id": "1977109",
+          "college": "UCLA",
+          "draft_team": "FA",
+          "draft_year": "2012",
+          "espn_id": "15351",
+          "height": "72",
+          "id": "11524",
+          "jersey": "48",
+          "kffl_id": "26333",
+          "name": "Derrick Coleman",
+          "nfl_id": "derrickcoleman/2534871",
+          "position": "RB",
+          "rotoworld_id": "8019",
+          "sportsdata_id": "e0a63251-5428-43a1-88c1-c000215ac5ce",
+          "stats_global_id": "461705",
+          "stats_id": "26299",
+          "team": "ARI",
+          "weight": "233",
+        },
+        Object {
+          "adp": "1.38",
+          "birthdate": "775890000",
+          "cbs_id": "2000877",
+          "college": "Georgia",
+          "draft_team": "STL",
+          "draft_year": "2015",
+          "espn_id": "2977644",
+          "height": "73",
+          "id": "12150",
+          "jersey": "30",
+          "kffl_id": "32621",
+          "name": "Todd Gurley",
+          "position": "RB",
+          "rotoworld_id": "10288",
+          "sportsdata_id": "14263792-d1d3-4b0c-85f7-2a85b4aed6f1",
+          "stats_global_id": "694641",
+          "stats_id": "28398",
+          "team": "LAR",
+          "weight": "227",
+        },
+        Object {
+          "adp": "118.48",
+          "birthdate": "658990800",
+          "cbs_id": "1691489",
+          "college": "Texas",
+          "draft_team": "BUF",
+          "draft_year": "2013",
+          "espn_id": "15839",
+          "height": "69",
+          "id": "11239",
+          "jersey": "11",
+          "kffl_id": "27802",
+          "name": "Marquise Goodwin",
+          "position": "WR",
+          "rotoworld_id": "8461",
+          "sportsdata_id": "bf52ff53-35a6-4696-ac6d-3fa952dc2c87",
+          "stats_global_id": "507478",
+          "stats_id": "26701",
+          "team": "SFO",
+          "weight": "179",
+        },
+      ]
+    }
+  />
+</div>
+`;

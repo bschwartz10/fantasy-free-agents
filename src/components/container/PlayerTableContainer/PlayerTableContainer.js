@@ -40,6 +40,7 @@ class PlayerTableContainer extends Component {
                       })
 
     this.setState({ players: players, allPlayers: players, loading: false });
+    console.log(this.state.players);
   }
 
   handleClick = (e, type, attribute) => {
@@ -95,11 +96,10 @@ class PlayerTableContainer extends Component {
       positions.splice(index, 1)
     } else {
         positions = [...this.state.positions, position]
-    }
-      this.setState({ positions }, () => {
-        this.filterPlayersByPosition()
-      },
-    )
+      }
+    this.setState({ positions }, () => {
+      this.filterPlayersByPosition()
+    })
   }
 
   filterPlayersByPosition = () => {

@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlayerRow component should match snapshot with all data passed in correctly 1`] = `
+<tr
+  className="player-row"
+>
+  <td
+    className="name"
+  >
+    Derrick Coleman
+  </td>
+  <td
+    className="position"
+  >
+    RB
+  </td>
+  <td
+    className="team"
+  >
+    ARI
+  </td>
+  <td
+    className="height"
+  >
+    72
+  </td>
+  <td
+    className="weight"
+  >
+    233
+  </td>
+  <td
+    className="adp"
+  >
+    400
+  </td>
+</tr>
+`;

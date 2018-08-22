@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlayerTableFilters component should match snapshot with all data passed in correctly 1`] = `
+<div
+  className="PlayerTableFilters"
+>
+  <FormGroup
+    bsClass="form-group"
+  >
+    <Checkbox
+      bsClass="checkbox"
+      className="qb"
+      disabled={false}
+      inline={true}
+      onChange={[Function]}
+      title=""
+    >
+      QB
+    </Checkbox>
+    <Checkbox
+      bsClass="checkbox"
+      className="rb"
+      disabled={false}
+      inline={true}
+      onChange={[Function]}
+      title=""
+    >
+      RB
+    </Checkbox>
+    <Checkbox
+      bsClass="checkbox"
+      className="wr"
+      disabled={false}
+      inline={true}
+      onChange={[Function]}
+      title=""
+    >
+      WR
+    </Checkbox>
+    <Checkbox
+      bsClass="checkbox"
+      className="te"
+      disabled={false}
+      inline={true}
+      onChange={[Function]}
+      title=""
+    >
+      TE
+    </Checkbox>
+  </FormGroup>
+  <FormControl
+    bsClass="form-control"
+    componentClass="input"
+    onChange={[Function]}
+    placeholder="Search by Name"
+    type="text"
+  />
+</div>
+`;
