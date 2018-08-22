@@ -55,13 +55,13 @@ class PlayerTableContainer extends Component {
     let sortedCollection;
     if (sorted) {
       sortedCollection = players.sort((firstPlayer, secondPlayer) => {
-        if(firstPlayer[attribute] <= secondPlayer[attribute]) return -1
-        if(firstPlayer[attribute] >= secondPlayer[attribute]) return 1
+        if(firstPlayer[attribute] <= secondPlayer[attribute]) return 1
+        if(firstPlayer[attribute] >= secondPlayer[attribute]) return -1
       })
     } else {
         sortedCollection = players.sort((firstPlayer, secondPlayer) => {
-          if(firstPlayer[attribute] <= secondPlayer[attribute]) return 1
-          if(firstPlayer[attribute] >= secondPlayer[attribute]) return -1
+          if(firstPlayer[attribute] <= secondPlayer[attribute]) return -1
+          if(firstPlayer[attribute] >= secondPlayer[attribute]) return 1
         })
     }
     return sortedCollection
