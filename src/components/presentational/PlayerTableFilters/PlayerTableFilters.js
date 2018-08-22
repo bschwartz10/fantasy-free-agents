@@ -13,11 +13,7 @@ const PlayerTableFilters = ({toggleChange, handleChange}) => {
         <Checkbox inline onChange={(e) => toggleChange(e, 'WR')}>WR</Checkbox>
         <Checkbox inline onChange={(e) => toggleChange(e, 'TE')}>TE</Checkbox>
       </FormGroup>
-      <FormControl
-        type="text"
-        placeholder="Search by Name"
-        onChange={(e) => handleChange(e)}
-      />
+      <FormControl type="text" placeholder="Search by Name" onChange={(e) => handleChange(e)} />
     </div>
   )
 }

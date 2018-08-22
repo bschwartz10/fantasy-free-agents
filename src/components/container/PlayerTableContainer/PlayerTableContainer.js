@@ -113,12 +113,21 @@ class PlayerTableContainer extends Component {
     }
   }
 
+  handleChange = (e) => {
+    const { value } = e.target
+    let allPlayers = this.state.allPlayers
+    const updatedList = allPlayers.filter((player) => {
+      return player.name.toLowerCase().search(value.toLowerCase()) !== -1
+    })
+    this.setState({players: updatedList})
+  }
+
   render() {
     const { players, loading } = this.state;
     if (loading) return <Loading />
     return (
       <div>
-        <PlayerTableFilters toggleChange={this.toggleChange} />
+        <PlayerTableFilters toggleChange={this.toggleChange} handleChange={this.handleChange} />
         <PlayerTable players={players} handleClick={this.handleClick} />
       </div>
     );
