@@ -11,49 +11,75 @@ import Loading from '../../presentational/Loading'
 class PlayerTableContainer extends Component {
   state = {
     players: [],
-    adp: [],
     loading: true,
-    sorted: true
+    adpSorted: true,
   }
   componentDidMount = async () => {
-    const players = await fetchPlayers();
-    const adp = await fetchADP()
-    const sortedPlayers = players.map((player) => ({
-      ...player,
-      name: `${player.name.split(',')[1].trim()} ${player.name.split(',')[0]}`
-    }))
-    const finalPlayers = sortedPlayers.map((player) => {
-      adp.forEach((player_adp) => {
-        if (player.id === player_adp.id) {
-          return player.adp = player_adp.averagePick
-        }
-        if (!player.hasOwnProperty('adp')) {
-          player.adp = '400'
-        }
-      })
-      return player
-    })
-    const AdpSortedPlayers = finalPlayers.sort((firstPlayer, secondPlayer) => {
-      return firstPlayer.adp - secondPlayer.adp
-    })
+    const rawPlayers = await fetchPlayers()
+    const rawAdp = await fetchADP()
 
-    this.setState({ players: AdpSortedPlayers, adp: adp, loading: false });
-    console.log(this.state);
+    const adp = rawAdp.reduce((agg, playerAdp) => {
+      agg[playerAdp.id] = playerAdp.averagePick
+      return agg
+    },{})
+
+    const players = rawPlayers
+                      .map((player) => ({
+                        ...player,
+                        name: `${player.name.split(',')[1].trim()} ${player.name.split(',')[0]}`,
+                        adp: adp[player.id] ? adp[player.id] : '400'
+                      }))
+                      .sort((firstPlayer, secondPlayer) => {
+                        return firstPlayer.adp - secondPlayer.adp
+                      })
+
+    this.setState({ players: players, loading: false });
   }
 
-  handleClick = () => {
-    const { players, sorted } = this.state
-    let AdpSortedPlayers;
+  handleClick = (e, type, attribute) => {
+    this.sortPlayers(type, attribute)
+  }
+
+  sortPlayers = (type, attribute) => {
+    const sorted = this.state[type]
+    const sortedCollection =
+      attribute === 'adp' ?
+        this.sortByAdp(sorted, attribute) :
+        this.sortByAttribute(sorted, attribute)
+
+    this.setState( {players: sortedCollection, [type]: !sorted} )
+  }
+
+  sortByAttribute = (sorted, attribute) => {
+    const { players } = this.state
+    let sortedCollection;
     if (sorted) {
-      AdpSortedPlayers = players.sort((firstPlayer, secondPlayer) => {
-        return secondPlayer.adp - firstPlayer.adp
+      sortedCollection = players.sort((firstPlayer, secondPlayer) => {
+        if(firstPlayer[attribute] <= secondPlayer[attribute]) return -1
+        if(firstPlayer[attribute] >= secondPlayer[attribute]) return 1
       })
     } else {
-        AdpSortedPlayers = players.sort((firstPlayer, secondPlayer) => {
-          return firstPlayer.adp - secondPlayer.adp
+        sortedCollection = players.sort((firstPlayer, secondPlayer) => {
+          if(firstPlayer[attribute] <= secondPlayer[attribute]) return 1
+          if(firstPlayer[attribute] >= secondPlayer[attribute]) return -1
         })
     }
-    this.setState( {players: AdpSortedPlayers, sorted: !sorted} )
+    return sortedCollection
+  }
+
+  sortByAdp = (sorted, attribute) => {
+    const { players } = this.state
+    let sortedCollection;
+    if (sorted) {
+      sortedCollection = players.sort((firstPlayer, secondPlayer) => {
+        return secondPlayer[attribute] - firstPlayer[attribute]
+      })
+    } else {
+        sortedCollection = players.sort((firstPlayer, secondPlayer) => {
+          return firstPlayer[attribute] - secondPlayer[attribute]
+        })
+    }
+    return sortedCollection
   }
 
   render() {
