@@ -1,34 +1,42 @@
-This is the repo for RotoGrinders Pair Programming Exercise for the technical interview.
+# Fantasy Free Agents
 
-Make sure the you are able to load and start this app before the interview. If you have any problems or questions please reach out to nick.sarlo@rotogrinders.com
+## Overview
+* This application is a mock up of a fantasy football free agents table. Features include:
+ -  Sorting players by position
+ -  Sort players by attribute(i.e Team, ADP, etc)
+ -  Filtering players by name
 
-#Instructions
+![Alt text](./public/homepage.png?raw=true "Entrance")
 
--Fork this repo
 
--Download the necessary modules using:
+## Setup
+* To set up a local copy of this project, perform the following:
 
-```sh
+* Clone the repo in your terminal:
+```
+git clone https://github.com/bschwartz10/fantasy-free-agents.git
+```
+* Navigate into the project:
+```
+cd fantasy-free-agents
+```
+* Install NPM Packages:
+```
 npm install
 ```
-
-or
-
-```sh
-yarn
+* Ensure tests are passing:
+```
+npm test
+```
+* Run Server:
+```
+node server.js
+```
+* Open application in browser:
+```
+http://localhost:3000/
 ```
 
-
--Start the app to make sure everything works correctly
-
-```sh
-npm start
-```
-
-or
-
-```sh
-yarn start
-```
-
-The exercise will involve pair programming with your interviewer to build a simple React component. Feel free to dig around to get familiar with the code in the meantime.
+## Libraries Used
+* [React](https://reactjs.org/) - Javascript Library
+* [Jest](hhttps://jestjs.io/) - Testing framework for Javascript
